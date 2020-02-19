@@ -6,10 +6,29 @@ import UIKit
 //: Look at data from [Departures at JFK Airport in NYC](https://www.airport-jfk.com/departures.php) for reference.
 //:
 //: a. Use an `enum` type for the FlightStatus (En Route, Scheduled, Canceled, Delayed, etc.)
+
+enum FlightStatus {
+    case enRoute
+    case scheduled
+    case canceled
+    case delayed
+}
+
 //:
 //: b. Use a struct to represent an `Airport` (Destination or Arrival)
+
+struct Airport {
+  let name: String
+}
+
 //:
 //: c. Use a struct to represent a `Flight`.
+
+struct Flight {
+    let departure: Int
+    let terminal: String
+}
+
 //:
 //: d. Use a `Date?` for the departure time since it may be canceled.
 //:
@@ -17,6 +36,15 @@ import UIKit
 //:
 //: f. Use a class to represent a `DepartureBoard` with a list of departure flights, and the current airport
 
+class DepartureBoard {
+    var currentAirport: Airport
+    var departureFlights: [Flight]
+
+    init(currentAirport: Airport) {
+      self.currentAirport = currentAirport
+      self.departureFlights = []
+    }
+}
 
 
 //: ## 2. Create 3 flights and add them to a departure board
