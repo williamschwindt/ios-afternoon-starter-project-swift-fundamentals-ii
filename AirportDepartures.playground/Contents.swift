@@ -79,7 +79,13 @@ print(departBoard.departureFlights)
 //:
 //: d. Print out the current DepartureBoard you created using the function
 
+func printDepartures(departureBoard: DepartureBoard) {
+  for flight in departureBoard.departureFlights {
+    print(flight)
+  }
+}
 
+printDepartures(departureBoard: departBoard)
 
 
 //: ## 4. Make a second function to print print an empty string if the `departureTime` is nil
