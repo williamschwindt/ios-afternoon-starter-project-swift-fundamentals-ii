@@ -21,12 +21,14 @@ struct Airport {
   let name: String
 }
 
+let RRA = Airport(name: "redmond")
+
 //:
 //: c. Use a struct to represent a `Flight`.
 
 struct Flight {
-    let departure: Int
-    let terminal: String
+    let departure: Int?
+    let terminal: String?
 }
 
 //:
@@ -45,10 +47,18 @@ class DepartureBoard {
       self.departureFlights = []
     }
 }
-
+var departBoard = DepartureBoard(currentAirport: RRA)
 
 //: ## 2. Create 3 flights and add them to a departure board
 //: a. For the departure time, use `Date()` for the current time
+let flight1 = Flight(departure: 7, terminal: nil)
+let flight2 = Flight(departure: nil, terminal: "A31")
+let flight3 = Flight(departure: 8, terminal: "A41")
+departBoard.departureFlights.append(flight1)
+departBoard.departureFlights.append(flight2)
+departBoard.departureFlights.append(flight3)
+print(departBoard.departureFlights)
+
 //:
 //: b. Use the Array `append()` method to add `Flight`'s
 //:
@@ -69,7 +79,13 @@ class DepartureBoard {
 //:
 //: d. Print out the current DepartureBoard you created using the function
 
+func printDepartures(departureBoard: DepartureBoard) {
+  for flight in departureBoard.departureFlights {
+    print(flight)
+  }
+}
 
+printDepartures(departureBoard: departBoard)
 
 
 //: ## 4. Make a second function to print print an empty string if the `departureTime` is nil
