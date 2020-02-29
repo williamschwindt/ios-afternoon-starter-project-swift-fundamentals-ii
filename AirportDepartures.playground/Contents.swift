@@ -13,7 +13,6 @@ enum FlightStatus {
     case canceled
     case delayed
 }
-
 //:
 //: b. Use a struct to represent an `Airport` (Destination or Arrival)
 
@@ -81,7 +80,15 @@ print(departBoard.departureFlights)
 
 func printDepartures(departureBoard: DepartureBoard) {
   for flight in departureBoard.departureFlights {
-    print(flight)
+    if let flightTime = flight.departure {
+        if let flightTer = flight.terminal {
+            print("Departure: \(flightTime), Terminal: \(flightTer)")
+        } else {
+            print("Departure: \(flightTime), Terminal: ")
+        }
+    } else {
+        print("Departure: , Terminal: ")
+    }
   }
 }
 
